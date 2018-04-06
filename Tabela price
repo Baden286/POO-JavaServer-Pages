@@ -1,0 +1,65 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/estilização.css" />
+        <title>Tabela Price</title>
+            <%
+                double pmt = 0;
+                double juros = 0;
+                double val = 0;
+             %>
+        
+        
+    </head>
+    <body>
+        <h1>Tabela Price</h1>
+       <h3>Informa o Capital</h3>
+        <form>
+        <input type="text" name="PV"/>
+        <h3>Informe a taxa(Em %)</h3>       
+        <input type="text" name="i"/>        
+        <h3>Informe o periodo(Em meses)</h3>        
+        <input type="text" name="n"/>
+        <input type="submit" value="Enviar"/>
+        </form><br/>
+        
+         <div class="container">
+         <table class="table table-bordered">
+            <tr><td colspan="1">Periodo</td><td>Saldo</td><td>Parcela</td><td>Juros</td><td>Prestação</td></tr>
+            
+             <% try{ %>
+           <%   
+                double PV = Double.parseDouble(request.getParameter("PV"));
+                double i = Double.parseDouble(request.getParameter("i")) / 100 ;
+                int n = Integer.parseInt(request.getParameter("n"));
+                       
+                      val = PV;
+                      pmt = PV /((1- Math.pow((1+i),-n))/i );
+                      
+                      for(int count =1; count <= n; count++){ 
+                        juros = val * i ;
+                        val = val -  ( pmt - juros);
+                
+            %>
+                
+            
+             <tr><th><%= count %></th><td><%=  val %></td><td><%=  pmt  %></td><td><%=  juros %></td><td><%=  pmt - juros %></td></tr>
+          <% }%> 
+            </tbody>
+  </table>
+</div>
+            
+            <% }catch(Exception ex){ %>
+            <h3>Insira valores validos
+
+            
+            </h3>
+             <% } %>
+    </body>
+</html>
