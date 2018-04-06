@@ -16,15 +16,17 @@
     <body>
         <%-- Include do menu jspf --%> 
         <%@include file="WEB-INF/jspf/menu.jspf" %>
-        
+
         <div align="center">
         <h1>Sistema de Amortização Americano</h1>
-        <p>O Sistema de Amortização Americano é uma forma de pagamento de empréstimos que se caracteriza pelo pagamento apenas dos juros da dívida,deixando o valor da dívida constante, que pode ser paga em apenas um único pagamento. Esse sistema de amortização tem a vantagem em relação ao sistema de pagamento único, pois nele não há incidência de juros sobre juros. Os juros sempre incidem sobre o valor original da dívida. Com isso o devedor pode quitar sua dívida quando quiser. Tem como desvantagem que o pagamento de juros pode, em tese, ser perpétuo mesmo quando já se pagou o equivalente à dívida em si. Para isso, basta que o número de prestações exceda 100% quando da soma dos juros simples.</p>
-        <hr/>
+        <div class="panel panel-default">
+        <div class="panel-body">
+            <p>O Sistema de Amortização Americano é uma forma de pagamento de empréstimos que se caracteriza pelo pagamento apenas dos juros da dívida,deixando o valor da dívida constante, que pode ser paga em apenas um único pagamento. Esse sistema de amortização tem a vantagem em relação ao sistema de pagamento único, pois nele não há incidência de juros sobre juros. Os juros sempre incidem sobre o valor original da dívida. Com isso o devedor pode quitar sua dívida quando quiser. Tem como desvantagem que o pagamento de juros pode, em tese, ser perpétuo mesmo quando já se pagou o equivalente à dívida em si. Para isso, basta que o número de prestações exceda 100% quando da soma dos juros simples.</p>
+        </div><hr/>
         <form>
-            <h3>Informa o Capital:</h3> <input type="title" name="SalDev"/><br/>
-            <h3>Informe a taxa(Em %):</h3> <input type="title" name="Taxa"/><br/>
-            <h3>Informe o periodo(Em meses):</h3> <input type="title" name="Tempo"/><br/>
+            <h3>Informa o Capital:</h3> <input type="text" name="SalDev"/><br/>
+            <h3>Informe a taxa(Em %):</h3> <input type="text" name="Taxa"/><br/>
+            <h3>Informe o periodo(Em meses):</h3> <input type="text" name="Tempo"/><br/>
             <input type="submit" value="Calcular"/>
         </form>
         <hr/>
@@ -61,7 +63,7 @@
             </tr>
             </table>
         <%}catch(Exception ex){%>
-            Informe todos os dados acima.
+            <b>Informe todos os dados acima corretamente</b>.
         <%}%>
         <br><hr>
         </div>
