@@ -10,11 +10,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sistema de Amortização Americano</title>
+        <%-- Include do header jspf --%> 
+        <%@include file="WEB-INF/jspf/header.jspf" %>
     </head>
     <body>
         <%-- Include do menu jspf --%> 
         <%@include file="WEB-INF/jspf/menu.jspf" %>
         
+        <div align="center">
         <h1>Sistema de Amortização Americano</h1>
         <p>O Sistema de Amortização Americano é uma forma de pagamento de empréstimos que se caracteriza pelo pagamento apenas dos juros da dívida,deixando o valor da dívida constante, que pode ser paga em apenas um único pagamento. Esse sistema de amortização tem a vantagem em relação ao sistema de pagamento único, pois nele não há incidência de juros sobre juros. Os juros sempre incidem sobre o valor original da dívida. Com isso o devedor pode quitar sua dívida quando quiser. Tem como desvantagem que o pagamento de juros pode, em tese, ser perpétuo mesmo quando já se pagou o equivalente à dívida em si. Para isso, basta que o número de prestações exceda 100% quando da soma dos juros simples.</p>
         <hr/>
@@ -31,7 +34,8 @@
             double taxa = Double.parseDouble(request.getParameter("Taxa"));
             double tempo = Integer.parseInt(request.getParameter("Tempo"));
         %>
-        <table border="2">
+        <div class="container">
+            <table class="table table-bordered">
             <tr><td colspan="1">Periodo</td><td>Saldo</td><td>Amortização</td><td>Juros</td><td>Prestação</td></tr>
         <% double amort = 0; double juros = 0; double presta = 0;
         taxa = taxa/100;
@@ -60,6 +64,7 @@
             Informe todos os dados acima.
         <%}%>
         <br><hr>
+        </div>
         <%-- Include do rodapé --%>
         <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
