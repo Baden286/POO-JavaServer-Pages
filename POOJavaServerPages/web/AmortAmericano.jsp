@@ -59,8 +59,8 @@
         <%}catch(Exception ex){%>
             Informe todos os dados acima.
         <%}%>
-        </hr>
-        <%-- Include do rodapé: EM BREVE! 
-        <%@include file="WEB-INF/jspf/foot.jspf" %>  --%>
+        <br><hr>
+        <%-- Include do rodapé --%>
+        <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
 </html>

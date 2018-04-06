@@ -69,7 +69,8 @@
         
         </table>
         
-
-
+        <br><hr>
+        <%-- Include do rodapé --%>
+        <%@include file="WEB-INF/jspf/footer.jspf" %>
     </body>
 </html>
